@@ -18,8 +18,24 @@
     </div>
 
     <script>
-      const url = "https://dog.ceo/api/breeds/image/random";
-      // TODO: url에서 강아지 사진 링크를 가져와 본문의 img 소스를 대체하기
+      function DogApp() {
+        const url = "https://dog.ceo/api/breeds/image/random";
+        const $button = document.querySelector("#fetch-button");
+        const $image = document.querySelector("#dog-image");
+
+        $button.addEventListener("click", event => this.changeDogImage(event));
+
+        this.changeDogImage = (event) => {
+          event.preventDefault();
+          fetch(url)
+                  .then(response => response.json())
+                  .then(item => {
+                    $image.src = item.message;
+                  });
+        }
+      }
+
+      DogApp();
     </script>
   </body>
 </html>
