@@ -4,7 +4,7 @@ function LottoList () {
   const $lottos = document.querySelector("#lottos");
 
   function generateLotto() {
-    let lottoNumbers = [];
+    const lottoNumbers = [];
     for (let i = 0; i < 6; i++) {
       let number = Math.floor(Math.random() * 45) + 1;
       if (lottoNumbers.includes(number)) {
@@ -17,7 +17,7 @@ function LottoList () {
   }
 
   function generateLottos(size) {
-    let lottos = [];
+    const lottos = [];
     for (let i = 0; i < size; i++) {
       lottos.push(generateLotto());
     }
